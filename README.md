@@ -11,7 +11,7 @@ sudo yum install android-tools
 passo a passo
 https://www.showmetech.com.br/aprenda-instalar-usar-adb-do-android-windows/
 
-<H2> Comandos Basicos </H2>
+<H2> Comandos ADB </H2>
 
 <ul>
   <li>Conexão por IP</li>
@@ -117,7 +117,7 @@ adb install c:/pasta/arqivo.apk
 adb -s ip:5555 remount
 ```
 ---------------
-Comandos em terminal
+<H2>Comandos em terminal</H2>
 
 <ul>
   <li>Listar todas as partições</li>
@@ -132,4 +132,34 @@ adb shell df
   
 ```diff
 adb shell mount -o rw,remount /
+```
+<ul>
+  <li>Cria uma pasta(exemplo pasta SuperSU)</li>
+  </ul>
+  
+```diff
+adb shell mkdir /system/app/SuperSU
+```
+
+<ul>
+  <li>remove uma pasta(exemplo pasta SuperSU)</li>
+  </ul>
+  
+```diff
+adb shell rmdir /system/app/SuperSU
+```
+
+<ul>
+  <li>força a remoção de uma pasta mesmo que contenha coisas dentro(exemplo pasta SU)</li>
+  </ul>
+  
+```diff
+adb shell rm -f /system/bin/su
+```
+<ul>
+  <li>Limpando arquivos temporarios(exemplo pasta System)</li>
+  </ul>
+  
+```diff
+adb shell rm -fR data/local/tmp/system/
 ```
