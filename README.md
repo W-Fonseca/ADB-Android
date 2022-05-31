@@ -120,13 +120,6 @@ adb -s ip:5555 remount
 <H2>Comandos em terminal</H2>
 
 <ul>
-  <li>Listar todas as partições</li>
-  </ul>
-  
-```diff
-adb shell df
-```
-<ul>
   <li>Remonta o sistema</li>
   </ul>
   
@@ -162,4 +155,51 @@ adb shell rm -f /system/bin/su
   
 ```diff
 adb shell rm -fR data/local/tmp/system/
+```
+
+<ul>
+  <li>Detalhes do espaço do disco</li>
+  </ul>
+  
+```diff
+adb shell df
+```
+
+<ul>
+  <li>Espaço em disco usado pelos arquivos e subdiretórios especificados</li>
+  </ul>
+  
+```diff
+adb shell du
+```
+<ul>
+  <li>Detalhes do espaço em disco no formato KB/MB</li>
+  </ul>
+  
+```diff
+adb shell df -h
+```
+
+<ul>
+  <li>Espaço em disco usado pelos arquivos e subdiretórios especificados no formato KB/MB</li>
+  </ul>
+  
+```diff
+adb shell du -h
+```
+
+<ul>
+  <li>Para detalhes específicos do espaço da pasta</li>
+  </ul>
+  
+```diff
+adb shell df /sistema
+```
+
+<ul>
+  <li>Para detalhes específicos do espaço da mesa de pastas e subsatratos</li>
+  </ul>
+  
+```diff
+adb shell du /sistema
 ```
