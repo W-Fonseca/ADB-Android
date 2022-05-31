@@ -14,16 +14,122 @@ https://www.showmetech.com.br/aprenda-instalar-usar-adb-do-android-windows/
 <H2> Comandos Basicos </H2>
 
 <ul>
+  <li>Conexão por IP</li>
+  </ul>
+  
+```diff
+adb Connect <ip do dispositivo>
+```
+<ul>
+  <li>Conexão por usb</li>
+  </ul>
+  
+```diff
+adb usb
+```
+<ul>
+  <li>Montar conexão com porta 5555</li>
+  </ul>
+  
+```diff
+adb tcpip 5555
+```
+<ul>
   <li>Desconectar de todos os dispositivos</li>
   </ul>
   
 ```diff
 adb kill-server
+ou 
+adb disconnect
 ```
+<ul>
+  <li>Mostrar todas as conexões</li>
+  </ul>
+  
+```diff
+adb devices
+```
+
+<ul>
+  <li>Remonta o sistema</li>
+  </ul>
+  
+```diff
+adb remount
+```
+<ul>
+  <li>Reiniciar o sistema</li>
+  </ul>
+  
+```diff
+adb reboot
+```
+<ul>
+  <li>Reiniciar no modo recuperação</li>
+  </ul>
+  
+```diff
+adb reboot recovery
+```
+<ul>
+  <li>Reiniciar no modo bootloader</li>
+  </ul>
+  
+```diff
+adb reboot bootloader
+```
+<ul>
+  <li>Reiniciar no modo fastboot</li>
+  </ul>
+  
+```diff
+adb reboot fastboot
+```
+
+<ul>
+  <li>enviar arquivos para uma pasta</li>
+  </ul>
+  
+```diff
+adb push c:/pasta/arqivo.apk /system/preinstall
+```
+<ul>
+  <li>copiar um arquivo para o pc</li>
+  </ul>
+  
+```diff
+adb pull c:/pasta/arqivo.apk /system/preinstall
+```
+<ul>
+  <li>Instalar um Aplicativo</li>
+  </ul>
+  
+```diff
+adb install c:/pasta/arqivo.apk 
+```
+
+<ul>
+  <li>enviar comandos em um determinado celular, caso ter mais de um celular conectado</li>
+  </ul>
+  
+```diff
+adb -s ip:5555 remount
+```
+---------------
+Comandos em terminal
+
 <ul>
   <li>Listar todas as partições</li>
   </ul>
   
 ```diff
 adb shell df
+```
+<ul>
+  <li>Remonta o sistema</li>
+  </ul>
+  
+```diff
+adb shell mount -o rw,remount /
 ```
