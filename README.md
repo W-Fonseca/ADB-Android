@@ -156,7 +156,13 @@ adb shell rm -f /system/bin/su
 ```diff
 adb shell rm -fR data/local/tmp/system/
 ```
-
+<ul>
+  <li>Forçar apagar uma pasta</li>
+  </ul>
+  
+```diff
+adb shell rm -fr data/local/tmp/system/Preinstall
+```
 <ul>
   <li>Detalhes do espaço do disco</li>
   </ul>
