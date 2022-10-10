@@ -2,6 +2,7 @@
 outros:
 https://superuser.com/questions/218340/how-to-generate-a-valid-random-mac-address-with-bash-shell
 https://github.com/talesam/optimize_android_tv/blob/master/ott.sh
+
 https://busybox.busybox.narkive.com/KY0F3LrB/modifying-mac-address
 
 Documentação de utilização do terminal shell do android
