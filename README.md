@@ -138,6 +138,13 @@ adb shell mount -o rw,remount /
 ```diff
 adb shell mkdir /system/app/SuperSU
 ```
+<ul>
+  <li>Pesquisa um arquivo</li>
+  </ul>
+  
+```diff
+adb shell find / -name '*.sh' 2>/dev/null
+```
 
 <ul>
   <li>remove uma pasta(exemplo pasta SuperSU)</li>
