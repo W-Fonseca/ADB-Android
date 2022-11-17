@@ -1,0 +1,48 @@
+#!/system/bin/sh
+/system/xbin/daemonsu --auto-daemon &
+MARK=/data/local/symbol_thirdpart_apks_installed
+PKGS=/system/preinstall/
+
+add_mac(){
+mount -o rw,remount /system
+ifconfig eth0 down
+ifconfig eth0 up
+hexchars="0123456789ABCDEF"
+end1=${hexchars:$(( $RANDOM % 16 )):1}
+end2=${hexchars:$(( $RANDOM % 16 )):1}
+end3=${hexchars:$(( $RANDOM % 16 )):1}
+end4=${hexchars:$(( $RANDOM % 16 )):1}
+end5=${hexchars:$(( $RANDOM % 16 )):1}
+end6=${hexchars:$(( $RANDOM % 16 )):1}
+end7=${hexchars:$(( $RANDOM % 16 )):1}
+end8=${hexchars:$(( $RANDOM % 16 )):1}
+end9=${hexchars:$(( $RANDOM % 16 )):1}
+end10=${hexchars:$(( $RANDOM % 16 )):1}
+end11=${hexchars:$(( $RANDOM % 16 )):1}
+end12=${hexchars:$(( $RANDOM % 16 )):1}
+echo $end1$end2:$end3$end4:$end5$end6:$end7$end8:$end9$end10:$end11$end12
+busybox ifconfig eth0 hw ether $end1$end2:$end3$end4:$end5$end6:$end7$end8:$end9$end10:$end11$end12
+}
+
+add_mac
+add_mac
+add_mac
+
+if [ ! -e $MARK ]; then
+echo "booting the first time, so pre-install some APKs."
+
+busybox find $PKGS -name "*\.apk" -exec sh /system/bin/pm install {} \;
+
+# NO NEED to delete these APKs since we keep a mark under data partition.
+# And the mark will be wiped out after doing factory reset, so you can install
+# these APKs again if files are still there.
+# busybox rm -rf $PKGS
+
+touch $MARK
+echo "Tudo pronto, instalacao realizada."
+mkdir /storage/sdcard0/Download/load0
+setprop persist.sys.language pt; setprop persist.sys.country BR; 
+setprop ctl.restart zygote
+
+fi
+
